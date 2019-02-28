@@ -1,0 +1,164 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="inventario.materia">
+      <field name="name">Listado de materia prima</field>
+      <field name="model">inventario.materia</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="imagen" nolabel="1" widget="image" class="oe_right oe_avatar"/>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="coste"/>
+          <field name="descripcion"/>
+          <field name="proveedor"/>
+          <field name="cantidad"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="inventario.proveedor">
+      <field name="name">Listado de proveedores</field>
+      <field name="model">inventario.proveedor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="inventario.pedidos">
+      <field name="name">Listado de pedidos</field>
+      <field name="model">inventario.pedidos</field>
+      <field name="arch" type="xml">
+       <tree>
+          <field name="name"/>
+          <field name="fecha_llegada"/>
+          <field name="proveedor"/>
+          <field name="cantidad"/>
+          <field name="materia"/>
+      </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="inventario.almacen">
+      <field name="name">Lista de almacenes</field>
+      <field name="model">inventario.almacen</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="encargado"/>
+          <field name="materia"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="inventario.encargado">
+      <field name="name">Lista de encargados</field>
+      <field name="model">inventario.encargado</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="inventario.inventario">
+      <field name="name">Stock de inventarios</field>
+      <field name="model">inventario.inventario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="materia"/>
+          <field name="almacen"/>
+          <field name="cantidad"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="inventario.materia_action_window">
+      <field name="name">Lista de productos</field>
+      <field name="res_model">inventario.materia</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inventario.proveedor_action_window">
+      <field name="name">Lista de proveedores</field>
+      <field name="res_model">inventario.proveedor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inventario.pedidos_action_window">
+      <field name="name">Operaciones</field>
+      <field name="res_model">inventario.pedidos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inventario.almacen_action_window">
+      <field name="name">Almacenes</field>
+      <field name="res_model">inventario.almacen</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inventario.encargado_action_window">
+      <field name="name">Personal</field>
+      <field name="res_model">inventario.encargado</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inventario.inventario_action_window">
+      <field name="name">Stock</field>
+      <field name="res_model">inventario.inventario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="instituto.action_server">
+      <field name="name">instituto server</field>
+      <field name="model_id" ref="model_instituto_instituto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <menuitem name="Inventario" id="inventario.menu_root"/> -->
+    <!-- menu categories -->
+    <menuitem name="Datos principales" id="inventario.menu_1" parent="inventario.menu_root"/>
+    <menuitem name="Gestión de proveedores" id="inventario.menu_2" parent="inventario.menu_root"/>
+    <menuitem name="Operaciones" id="inventario.menu_3" parent="inventario.menu_root"/>
+    <menuitem name="Almacenes" id="inventario.menu_4" parent="inventario.menu_root"/>
+    <menuitem name="Personal" id="inventario.menu_5" parent="inventario.menu_root"/>
+    <menuitem name="Stock" id="inventario.menu_6" parent="inventario.menu_root"/>
+
+    -->
+
+    <!-- actions -->
+
+    <menuitem name="Productos" id="inventario.materia_1_list" parent="inventario.menu_1"
+              action="inventario.materia_action_window"/>
+    <menuitem name="Proveedores" id="inventario.proveedor_1_list" parent="inventario.menu_2"
+              action="inventario.proveedor_action_window"/>
+    <menuitem name="Transferencias" id="inventario.pedidos_1_list" parent="inventario.menu_3"
+              action="inventario.pedidos_action_window"/>
+    <menuitem name="Gestion de almacenes" id="inventario.almacen_1_list" parent="inventario.menu_4"
+              action="inventario.almacen_action_window"/>
+    <menuitem name="Gestion de Personal" id="inventario.encargado_1_list" parent="inventario.menu_5"
+              action="inventario.encargado_action_window"/>
+    <menuitem name="Gestión del Inventario" id="inventario.inventario_1_list" parent="inventario.menu_6"
+              action="inventario.inventario_action_window"/>
+    -->
+  </data>
+</odoo>

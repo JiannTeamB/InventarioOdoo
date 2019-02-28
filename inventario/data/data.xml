@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+      <record id="object0" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/huevo.jpg"/>
+        <field name="name">0001</field>
+        <field name="nombre">Huevo</field>
+        <field name="coste">20</field>
+      </record>
+      <record id="object1" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/zanahoria.jpg"/>
+        <field name="name">0002</field>
+        <field name="nombre">Zanahoria</field>
+        <field name="coste">7</field>
+        <field name="proveedor" ref="prov1"></field>
+      </record>
+      <record id="object2" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/patata.jpg"/>
+        <field name="name">0003</field>
+        <field name="nombre">Patata</field>
+        <field name="coste">6</field>
+        <field name="proveedor" ref="prov2"></field>
+      </record>
+      <record id="object3" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/lechuga.jpg"/>
+        <field name="name">0004</field>
+        <field name="nombre">Lechuga</field>
+        <field name="coste">20</field>
+      </record>
+      <record id="object4" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/ternera.jpg"/>
+        <field name="name">0005</field>
+        <field name="nombre">Ternera</field>
+        <field name="coste">12</field>
+        <field name="proveedor" ref="prov3"></field>
+        </record>
+      <record id="object5" model="inventario.materia">
+        <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/cebolla.jpg"/>
+        <field name="name">0006</field>
+        <field name="nombre">Cebolla</field>
+        <field name="coste">10</field>
+        <field name="proveedor" ref="prov2"></field>
+        </record>
+        <record id="object6" model="inventario.materia">
+          <field name ="imagen" type="base64" file="/usr/lib/python3/dist-packages/odoo/addons/inventario/imagenes/aceite.jpg"/>
+          <field name="name">0007</field>
+          <field name="nombre">Aceite de oliva</field>
+          <field name="coste">17</field>
+          <field name="proveedor" ref="prov1"></field>
+          </record>
+        <record id="prov1" model="inventario.proveedor">
+            <field name ="name">SSF</field>
+            <field name ="nombre">Federico Garcia</field>
+            <field name ="telefono">678456210</field>
+        </record>
+        <record id="prov3" model="inventario.proveedor">
+            <field name = "name">FFG</field>
+            <field name = "nombre">Antonio Dominguez</field>
+            <field name = "telefono">665784212</field>
+        </record>
+        <record id="prov2" model="inventario.proveedor">
+            <field name = "name">SDF</field>
+            <field name = "nombre">Pablo Lopez</field>
+            <field name = "telefono">679541258</field>
+        </record>
+        <record id="ped1" model="inventario.pedidos">
+            <field name = "name">PE001</field>
+            <field name = "fecha_llegada">12-03-2019</field>
+            <field name = "cantidad">20</field>
+            <field name="proveedor" ref="prov2"></field>
+        </record>
+        <record id="ped2" model="inventario.pedidos">
+            <field name = "name">PE002</field>
+            <field name = "fecha_llegada">16-05-2019</field>
+            <field name = "cantidad">2</field>
+            <field name="proveedor" ref="prov1"></field>
+            </record>
+        <record id="ped3" model="inventario.pedidos">
+              <field name = "name">PE003</field>
+              <field name = "fecha_llegada">19-06-2019</field>
+              <field name = "cantidad">15</field>
+              <field name="proveedor" ref="prov3"></field>
+        </record>
+        <record id="alm1" model="inventario.almacen">
+              <field name = "name">ALM1</field>
+              <field name="encargado" ref="ENC1"></field>
+        </record>
+        <record id="alm2" model="inventario.almacen">
+              <field name = "name">ALM2</field>
+              <field name="encargado" ref="ENC2"></field>
+        </record>
+
+        <record id="ENC1" model="inventario.encargado">
+              <field name = "name">19498096K</field>
+              <field name = "nombre">Santaigo Gutierrez</field>
+        </record>
+
+        <record id="ENC2" model="inventario.encargado">
+              <field name = "name">15487263H</field>
+              <field name = "nombre">David Diaz</field>
+        </record>
+
+        <record id="INV1" model="inventario.inventario">
+              <field name="almacen" ref="alm1"></field>
+              <field name = "cantidad">0</field>
+        </record>
+
+    </data>
+  </odoo>
